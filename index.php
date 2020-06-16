@@ -1,29 +1,7 @@
 <?php
-//buat koneksi
-$koneksi = mysqli_connect("localhost" , "root" , "" , "hewan");
-//ambil data dari tabel 
-$result = mysqli_query( $koneksi , " SELECT * FROM data_hewan ");
-//ambil data isi (fetch)
-//mysqli_fetch_row();mengembilkan array numerik
-// $hwn = mysqli_fetch_row($result);
-// var_dump ($hwn[3])
-//mysqli_fetch_assoc();mengembalikan array asosiatif
-// $hwn = mysqli_fetch_assoc($result);
-// var_dump ($hwn["jenis"])
-//mysqli_fetch_array(); mengembalikan arrai numerik dan assosiatif
-//$hwn = mysqli_fetch_array($result);
-// var_dump ($hwn[3]);
-// var_dump ($hwn["makanan"]);
-//mysqli_fetch_object();
-// $hwn = mysqli_fetch_object($result);
-// var_dump ($hwn -> jenis);
-
-// while ($hwn = mysqli_fetch_assoc($result)){
-// var_dump ($hwn);
-// } 
+require 'function.php';
+$hewan = query(" SELECT * FROM data_hewan");
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +21,7 @@ $result = mysqli_query( $koneksi , " SELECT * FROM data_hewan ");
             <th>makanan</th>
         </tr>
     <?php $i=1; ?>    
-      <?php while($hwn = mysqli_fetch_assoc($result)):?>  
+      <?php foreach($hewan as $hwn):?>  
         <tr>
             <td><?= $i?></td>
             <td>
@@ -58,7 +36,7 @@ $result = mysqli_query( $koneksi , " SELECT * FROM data_hewan ");
             <td><?= $hwn["makanan"]?></td>
         </tr>
     <?php $i++; ?>    
-        <?php endwhile?>
+      <?php endforeach;?>
     </table>
 </body>
 </html>
