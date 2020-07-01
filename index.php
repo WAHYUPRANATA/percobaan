@@ -1,6 +1,6 @@
 <?php
 require 'function.php';
-$hewan = query(" SELECT * FROM data_hewan");
+$hewan =query(" SELECT * FROM data_hewan");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,13 @@ $hewan = query(" SELECT * FROM data_hewan");
 </head>
 <body>
     <h1>data hewan</h1>
+ <!-- insert --> <a href="tambah.php ">ADD</a>
+ 
+ <br></br>
+
+
+
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>no</th>
@@ -25,8 +32,8 @@ $hewan = query(" SELECT * FROM data_hewan");
         <tr>
             <td><?= $i?></td>
             <td>
-                <a href=""> ubah </a> <br>
-                <a href=""> hapus </a>
+                <a href="ubah.php?id=<?= $hwn['id'];?>"> ubah </a> <br>
+                <a href="hapus.php?id=<?= $hwn['id'];?>">hapus</a>
             </td>
             <td>
                 <img src="img/<?= $hwn["gambar"]?>" width="50">
